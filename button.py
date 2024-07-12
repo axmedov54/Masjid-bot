@@ -7,14 +7,23 @@ menyu = ReplyKeyboardMarkup(
        [KeyboardButton(text="Xiva Navoz Vaqtlari⏲️"),KeyboardButton(text="Namoz O`qishni O`rganamiz☪️")] ,
        [KeyboardButton(text="Tongi Zikirlar🤲"),KeyboardButton(text="Tungi Zikirlar🤲")],
        [KeyboardButton(text='Allohnig 99 Ismi'),KeyboardButton(text='Taxorat Olish Tartibi🚿')],
-       [KeyboardButton(text='G`usl Olish Tartibi🚿')]
-
+       [KeyboardButton(text='G`usl Olish Tartibi🚿'),KeyboardButton(text='Yangi Masjid Uchun Hayriya🕌')],
+       [KeyboardButton(text='Xiva Masjidlar Joylashuvi🕌')]
     ],
     resize_keyboard=True,
     one_time_keyboard=True
 )
 
-
+masjid=ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text=('🕌Said Niyoz Sholikor🕌'),request_location=True)],
+        [KeyboardButton(text=('🕌Xasan Basriy🕌'),request_location=True)],
+        [KeyboardButton(text=('🕌Kasmabot jomey Masjidi🕌'),request_location=True)],
+        [KeyboardButton(text="Ortga<-")]
+    ],
+    resize_keyboard=True,
+    one_time_keyboard=True
+)
 
 oqish = ReplyKeyboardMarkup(
     keyboard=[
