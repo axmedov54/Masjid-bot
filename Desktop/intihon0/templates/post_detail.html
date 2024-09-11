@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restoran</title>
+  <link rel="stylesheet" href="styles.css"> <!-- CSS faylni ulash -->
+</head>
+
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    
+ 
+   
+    
+    <div class="menu-item">
+        <img src="{{post.photo.url}}" alt="{{post.title}}" class="menu-img">
+        <div class="menu-details">
+            <h2>{{post.title}}</h2>
+            <h3 class="price">{{post.narxi}}</h3>
+            <div class="quantity-control">
+              <h4 id="quantity">1 dona</h4>
+              <input type="text" id="amount" value="{{post.narxi}}" readonly>
+              <button onclick="multiplyByTwo()">+</button>
+              <button onclick="divideByTwo()">-</button>
+              
+              <script>
+              let quantity = 1;
+              
+              function multiplyByTwo() {
+                  quantity++;
+                  updateAmountAndQuantity();
+              }
+              
+              function divideByTwo() {
+                  if (quantity > 1) {
+                      quantity--;
+                      updateAmountAndQuantity();
+                  }
+              }
+              
+              function updateAmountAndQuantity() {
+                  let basePrice = {{post.narxi}}; // Har bir dona narxi
+                  let totalAmount = basePrice * quantity;
+                  document.getElementById("quantity").innerText = quantity + " dona";
+                  document.getElementById("amount").value = formatNumber(totalAmount);
+                }
+              
+              function formatNumber(num) {
+                  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+              }
+              </script>
+            </div>
+           <input type="submit" value="Yuborish">
+        </div>
+    </div>          
+ <script src="script.js"></script>
+                
+          
+{% endblock content %}
+</div>
+<!-- Testimonial End -->
